@@ -1,3 +1,7 @@
+
+##### This is a color guessing game using React and this is one of the challenges from frontendmentor.io
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

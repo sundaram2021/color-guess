@@ -3,35 +3,230 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 30%;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-button {
-  width: 80px;
-  margin: 0.7rem;
-  padding: 0.8rem;
+.title {
   color: white;
-  border: 0.5px solid white;
-  border-radius: 10px;
-  background-color: black;
-  cursor: pointer;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-button:hover {
-  color: black;
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.stat-label {
+  color: #ccc;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.difficulty-selector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.difficulty-btn {
+  padding: 0.5rem 1rem;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  min-width: 80px;
+}
+
+.difficulty-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.difficulty-btn.active {
   background-color: white;
+  color: #3b3a3a;
+  border-color: white;
+  font-weight: bold;
 }
 
 .sec {
-  width: 250px;
-  height: 200px;
-  border-radius: 50px;
+  width: 280px;
+  height: 220px;
+  border-radius: 20px;
   background: #4d5156;
-  box-shadow: 20px 20px 60px #414549, -20px -20px 60px #595d63;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
+              0 0 20px rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.sec:hover {
+  transform: scale(1.02);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.instruction {
+  color: #ddd;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.color-btn {
+  min-width: 100px;
+  padding: 0.8rem 1rem;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.color-btn:hover {
+  background-color: white;
+  color: #3b3a3a;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.color-btn:active {
+  transform: translateY(-1px);
+}
+
+.feedback {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedback.correct {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 2px solid #4ade80;
+}
+
+.feedback.wrong {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border: 2px solid #f87171;
+}
+
+.reset-btn {
+  padding: 0.7rem 1.5rem;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background-color: rgba(255, 87, 87, 0.6);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.reset-btn:hover {
+  background-color: rgba(255, 87, 87, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 87, 87, 0.4);
+}
+
+.reset-btn:active {
+  transform: translateY(0);
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .sec {
+    width: 240px;
+    height: 180px;
+  }
+
+  .stats {
+    gap: 1rem;
+  }
+
+  .stat-item {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .color-btn {
+    min-width: 90px;
+    font-size: 0.85rem;
+  }
 }
 
 @media only screen and (min-width: 900px) {
-  .App {
-    margin-top: 10%;
+  .sec {
+    width: 320px;
+    height: 250px;
   }
 }
